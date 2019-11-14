@@ -53,3 +53,5 @@ end
 gem "rspotify", "~> 2.7"
 
 gem "dotenv-rails", "~> 2.7"
+
+gem "interactor", "~> 3.1"
