@@ -51,3 +51,5 @@ group :development do
 end
 
 gem "rspotify", "~> 2.7"
+
+gem "dotenv-rails", "~> 2.7"
