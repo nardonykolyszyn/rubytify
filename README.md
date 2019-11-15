@@ -13,6 +13,8 @@ Interactors itself is also a design pattern called Command, it's really useful w
 
 2. Why did I to decide to persist data instead of fetching information based in users requests?
 
+R: Instead of wasting a huge operational performance in saving Artists, Albums and Songs, I could have saved only preloaded list of Artists, and then, fetch their albums and songs by users request, but, I decided to persist all information due to caching performances, so, I can pre-load existing collections without performing unnecessary requests.
+
 3. Why did I create a seed file instead of following the guide to create a Rake's task?
 
 4. Why I used a gem instead of creating a HTTP client from scracht?
