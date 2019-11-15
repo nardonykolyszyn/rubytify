@@ -12,8 +12,9 @@ Rails.application.routes.draw do
         get :songs, on: :member
       end
 
-      resources :genres, except: %i[index show new edit create destroy update] do
-        get :random_song
+      scope :genres do
+        get '/:genre_name/random_song', 
+        to: 'genres#random_song'
       end
     end
   end
