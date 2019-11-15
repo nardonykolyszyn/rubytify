@@ -19,8 +19,16 @@ R: Instead of wasting a huge operational performance in saving Artists, Albums a
 
 4. Why I used a gem instead of creating a HTTP client from scracht?
 
+R: From my point of view, RSpotify provides a whole and well-documented gem to connect to Spotify's API, so, that's why I decided to skip any option of creating a custom implementation.
+
 5. Why I used AMS instead of any other serializer?
+
+R: Even when AMS recommends other alternatives
 
 6. Why I decided to create a layer to parse responses by using ActiveSupport methods?
 
+R: By default, RSpotify returns responses with keys stringifed, however, for performance purposes, ActiveSupport includes methods to convert all keys into symbols.
+
 7. Why didn't I create an api only by using Rails's CLI?
+
+R: I wanted to show you how we can reduce the amount of code that is really usefull in a regular Rails application, even passing the flag --api-only it will create a bunch of unnecessary code.
