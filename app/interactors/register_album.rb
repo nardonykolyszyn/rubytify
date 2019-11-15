@@ -3,4 +3,8 @@
 class RegisterAlbum < ApplicationInteractor
   def call
   end
+
+  private
+
+  def
 end

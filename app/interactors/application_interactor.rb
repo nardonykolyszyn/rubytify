@@ -18,11 +18,11 @@ class ApplicationInteractor
     context.fail!(error: 'This resource does not exist')
   end
 
-  def persist_record(resource_name, attributes)
-    persisted_resource = retrieve_resource(resource_name, attributes[:spotify_id])
+  def persist_record(record: nil, resource_name: '', params: {})
+    persisted_resource = retrieve_resource(resource_name, params[:spotify_id])
     if persisted_resource.blank?
-      new_record = resource_name.to_s.capitalize.constantize.new(attributes)
-      new_record.save ? set_success_response(new_record) : context.fail!(error: new_record.errors.to_s)
+      record.assign_attributes(params)
+      record.save ? set_success_response(record) : context.fail!(error: record.errors.to_s)
     else
       context.data = persisted_resource
     end
