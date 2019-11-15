@@ -8,6 +8,6 @@ ARTISTS = YAML.load_file('config/seed.yml').deep_symbolize_keys[:artists].map(&:
 
 ARTISTS.each do |artist_name|
   operation_result = RegisterArtist.call(
-    artist: artist_name
+    artist_name: artist_name
   )
 end
