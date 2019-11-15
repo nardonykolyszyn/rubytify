@@ -55,3 +55,7 @@ gem "rspotify", "~> 2.7"
 gem "dotenv-rails", "~> 2.7"
 
 gem "interactor", "~> 3.1"
+
+gem "active_model_serializers", "~> 0.10.10"
+
+gem "pry-rails", "~> 0.3.9"
