@@ -20,12 +20,11 @@ class ApplicationInteractor
 
   def persist_record(resource_name, attributes)
     persisted_resource = retrieve_resource(resource_name, attributes[:spotify_id])
-    if persisted_resource&.persisted?
-      context.data = persisted_resource
-    else
-      new_record = resource_name.to_s.capitalize
-                                .constantize.new(attributes)
+    if persisted_resource.blank?
+      new_record = resource_name.to_s.capitalize.constantize.new(attributes)
       new_record.save ? set_success_response(new_record) : context.fail!(error: new_record.errors.to_s)
+    else
+      context.data = persisted_resource
     end
   end
 
