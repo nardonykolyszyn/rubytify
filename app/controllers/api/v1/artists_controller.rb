@@ -6,10 +6,10 @@ module Api
       before_action :assign_resource, only: :albums
       
       def index
-        @artists = ActiveModelSerializers::SerializableResource.new(Artist.all.order(popularity: :desc))
+        collection = ActiveModelSerializers::SerializableResource.new(Artist.all.order(popularity: :desc))
 
         render json: {
-          data: @artists
+          data: collection
         }, status: :ok
       end
 
