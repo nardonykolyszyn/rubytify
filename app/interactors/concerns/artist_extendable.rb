@@ -25,7 +25,7 @@ module ArtistExtendable
                             image: album.images[0]['url'], spotify_id: album.id,
                             spotify_url: album.href, tracks: album.tracks)
     end
-    
+
     album_parameters
   end
 
