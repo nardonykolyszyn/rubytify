@@ -14,7 +14,6 @@ class RegisterArtist < ApplicationInteractor
   protected
 
   def assign_albums
-    byebug
     artist_albums = extract_albums
     artist_albums.each { |album| artist.albums.build(album) }
   end
