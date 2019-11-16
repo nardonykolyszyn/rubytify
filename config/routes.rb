@@ -6,15 +6,14 @@ Rails.application.routes.draw do
       resources :artists, only: :index do
         get :albums, on: :member
       end
-      
+
       # Member actions cannot be used outside resource scope.
       resources :albums, except: %i[index show new edit create destroy update] do
         get :songs, on: :member
       end
 
       scope :genres do
-        get '/:genre_name/random_song', 
-        to: 'genres#random_song'
+        get '/:genre_name/random_song', to: 'genres#random_song'
       end
     end
   end
