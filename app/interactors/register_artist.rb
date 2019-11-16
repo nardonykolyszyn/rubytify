@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class RegisterArtist < ApplicationInteractor
-
   include ArtistExtendable
 
   def call
     response
     not_found if response.nil?
     assign_albums
-    persist_record(record: artist, resource_name: :artist, params: set_artist_attributes)
+    persist_record(record: artist,
+                   resource_name: :artist,
+                   params: set_artist_attributes)
   end
 
   protected
@@ -28,6 +29,7 @@ class RegisterArtist < ApplicationInteractor
     @response ||= RSpotify::Artist.search(context.artist_name).first
   end
 
+  # NOTE: Because Spotify's API returns repeated albums with different ids.
   def albums
     @albums ||= response.albums.uniq(&:name)
   end
