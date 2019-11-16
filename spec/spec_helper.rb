@@ -9,9 +9,13 @@ RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
-  # Extend matchers from shoulda_matchers
-  config.include StateMachineRspec::Matchers
   # Factory bot rails
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
   config.include FactoryBot::Syntax::Methods
   # database_cleaner implementation
   config.before(:suite) do
