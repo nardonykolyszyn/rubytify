@@ -4,6 +4,12 @@ module Api
   module V1
     # Main API controller that provides common behaviors across subclasses.
     class ApiSitesController < ApplicationController
+      before_action :assign_page
+
+      def assign_page
+        @page = params[:page] || 1
+      end
+
       private
 
       def assign_resource
