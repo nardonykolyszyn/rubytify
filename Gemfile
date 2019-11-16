@@ -78,3 +78,5 @@ gem "activerecord-import", "~> 1.0"
 gem "will_paginate", "~> 3.2"
 
 gem 'colorize', require: false
+
+gem "shoulda-matchers", "~> 4.1"
