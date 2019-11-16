@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'brakeman', require: false
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capistrano', '~> 3.11', require: false
   gem 'capistrano-bundler'
@@ -45,9 +46,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma'
-  gem 'colorize', require: false
   gem 'parallel_tests'
-  gem 'brakeman', require: false
   gem 'reek', require: false
 end
 
@@ -73,3 +72,5 @@ gem "pry-rails", "~> 0.3.9"
 gem "activerecord-import", "~> 1.0"
 
 gem "will_paginate", "~> 3.2"
+
+gem 'colorize', require: false
