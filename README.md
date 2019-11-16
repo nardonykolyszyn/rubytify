@@ -23,6 +23,37 @@ You need to load artists by executing next Rake's task.
   $ rake db:load_seed
 ```
 
+## Tests
+
+1. Run migrations
+
+```ruby
+  $ RAILS_ENV=test bin/rake db:migrate
+```
+
+2. Run Rspec
+
+```ruby
+  $ rspec .
+```
+
+### Run tests in parallel
+
+Setup parallel databases:
+
+```ruby
+  $ rake parallel:create
+  $ rake parallel:prepare
+  $ rake parallel:setup
+```
+
+And finally run
+
+```ruby
+  $ rake parallel:spec
+```
+
+
 ## QA
 -----
 
