@@ -21,7 +21,14 @@ In this implementation I used several design patterns and refactoring strategies
 
 ## Installation
 
-You need to load artists by executing next Rake's task.
+1. Export your Spotify's credentials into your .env file
+
+```bash
+ SPOTIFY_CLIENT_ID=""
+ SPOTIFY_CLIENT_SECRET=""
+```
+
+2. You need to load artists by executing next Rake's task.
 
 ```ruby
   $ rake db:load_seed
