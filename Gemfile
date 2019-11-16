@@ -46,6 +46,9 @@ group :development, :test do
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma'
   gem 'colorize', require: false
+  gem 'parallel_tests'
+  gem 'brakeman', require: false
+  gem 'reek', require: false
 end
 
 group :development do
