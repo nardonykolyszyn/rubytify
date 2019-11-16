@@ -10,7 +10,7 @@ class ApplicationInteractor
 
   private
 
-  def set_success_response(record)
+  def success_response(record)
     context.data = record
   end
 
@@ -22,7 +22,7 @@ class ApplicationInteractor
     persisted_resource = retrieve_resource(resource_name, params[:spotify_id])
     if persisted_resource.blank?
       record.assign_attributes(params)
-      record.save ? set_success_response(record) : context.fail!(error: record.errors.to_s)
+      record.save ? success_response(record) : context.fail!(error: record.errors.to_s)
     else
       context.data = persisted_resource
     end
@@ -39,12 +39,6 @@ class ApplicationInteractor
     # NOTE: RSpotify does not provide serialized models for responses.
     # NOTE: It doesn't return HTTP status codes, so that is why we validate using Array#present.
     # ANCHOR: This method is provided my ActiveSupport, it parses strings into symbols.
-    if response.present?
-      if response.is_a?(Array)
-        response.map(&:deep_symbolize_keys)
-      else
-        response.deep_symbolize_ke  ys
-      end
-    end
+    response.map(&:deep_symbolize_keys) if response.present?
   end
 end
