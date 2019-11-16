@@ -1,5 +1,7 @@
 # Rubytify
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/41a38f758db613f31691/maintainability)](https://codeclimate.com/github/nardonykolyszyn/rubytify/maintainability)
+
 Rubytify uses Spotify's API to retrieve information of selected artists which are loaded from a .YAML file, it also persists this information into a database to expose it over a Restful API.
 
 ## Approach
