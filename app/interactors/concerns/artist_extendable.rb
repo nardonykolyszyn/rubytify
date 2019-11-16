@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This module extends RSpotify parsing responses
+# It provides getter methods to descompose each response.
 module ArtistExtendable
   extend ActiveSupport::Concern
 
