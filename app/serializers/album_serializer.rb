@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class AlbumSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image, :total_tracks, :spotify_url, :spotify_id, :songs
+  attributes %i[id name image total_tracks spotify_url spotify_id songs].freeze
 
   def songs
-    ::SongSerializer.new(object.songs)
+    ActiveModelSerializers::SerializableResource.new(object.songs)
   end
 end
