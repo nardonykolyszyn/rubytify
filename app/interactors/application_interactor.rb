@@ -15,7 +15,7 @@ class ApplicationInteractor
   end
 
   def not_found
-    context.fail!(error: 'This resource does not exist')
+    context.fail!(error: '404 This artist does not exist')
   end
 
   def persist_record(record: nil, resource_name: '', params: {})
