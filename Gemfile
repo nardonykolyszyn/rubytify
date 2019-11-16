@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma'
+  gem 'colorize', require: false
 end
 
 group :development do
