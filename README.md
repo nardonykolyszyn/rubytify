@@ -15,6 +15,14 @@ So, I decided to create my own getters methods to break down my models into Acti
 
 In this implementation I used several design patterns and refactoring strategies, even non-convencional patterns such as metaprogramming, as you can see it uses Interactors that is a concept that Trailblazer introduced to cut down logic lines into the controllers, ensuring critical operations working, and easing errors handleing.
 
+## Installation
+
+You need to load artists by executing next Rake's task.
+
+```ruby
+  $ rake db:load_seed
+```
+
 ## QA
 -----
 
