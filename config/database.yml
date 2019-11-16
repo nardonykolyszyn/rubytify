@@ -8,7 +8,7 @@ development:
   database: rubitify_development
 test:
   <<: *default
-  database: rubitify_test
+  database: rubitify_test<%= ENV['TEST_ENV_NUMBER'] %>
 production:
   <<: *default
   database: rubitify_production
