@@ -6,17 +6,22 @@ module Api
     class GenresController < ApiSitesController
       def random_song
         render json: {
-          data: {
-            name: song.name,
-            spotify_url: song.href,
-            preview_url: song.preview_url,
-            duration_ms: song.duration_ms,
-            explicit: song.explicit
-          }
+          data: extract_song
         }, status: :ok
       end
 
       private
+
+      def extract_song
+        unless song.nil?
+          return {
+            name: song.name, spotify_url: song.href,
+            preview_url: song.preview_url, explicit: song.explicit,
+            duration_ms: song.duration_ms
+          }
+        end
+        []
+      end
 
       def song
         @song ||= RSpotify::Recommendations
