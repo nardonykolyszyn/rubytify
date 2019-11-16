@@ -15,6 +15,10 @@ describe RegisterArtist do
       it 'failured' do
         expect(not_found_context).to be_a_failure
       end
+
+      it 'provides a failure message' do
+        expect(not_found_context.error).to be_present
+      end
     end
   end
 end
