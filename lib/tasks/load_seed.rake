@@ -4,7 +4,7 @@ namespace :db do
   desc 'It loads predefined artists and retrieves albums and songs.'
   task :load_seed => :environment do
     require 'colorize'
-    ARTISTS = YAML.load_file('config/seed.yml')
+    ARTISTS = YAML.load_file(Rails.root.join('config', 'seed.yml'))
                   .deep_symbolize_keys[:artists].map(&:to_s).freeze
     ARTISTS.each do |artist_name|
       puts "Retrieving information for #{artist_name}...".green
