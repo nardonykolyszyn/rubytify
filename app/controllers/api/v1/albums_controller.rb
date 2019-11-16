@@ -2,14 +2,13 @@
 
 module Api
   module V1
+    # It returns all song for an album.
     class AlbumsController < ApiSitesController
       def songs
-        collection = ActiveModelSerializers::SerializableResource.new(@album.songs)
-
         render json: {
-          data: collection
+          data: load_collection(@album.songs)
         }, status: :ok
-      end      
+      end
     end
   end
 end

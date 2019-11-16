@@ -2,6 +2,7 @@
 
 module Api
   module V1
+    # It returns a random song based in taken genre.
     class GenresController < ApiSitesController
       def random_song
         render json: {
@@ -17,9 +18,11 @@ module Api
 
       private
 
-      
+
       def song
-        @song ||= RSpotify::Recommendations.generate(seed_genres: [params[:genre_name]]).tracks.first
+        @song ||= RSpotify::Recommendations
+                  .generate(seed_genres: [params[:genre_name]])
+                  .tracks.first
       end
     end
   end

@@ -2,6 +2,7 @@
 
 module Api
   module V1
+    # Main API controller that provides common behaviors across subclasses.
     class ApiSitesController < ApplicationController
       private
 
@@ -11,7 +12,7 @@ module Api
         instance_variable_set("@#{resource_name}", resource)
       end
 
-      def set_collection(query)
+      def load_collection(query)
         ActiveModelSerializers::SerializableResource.new(query)
       end
     end

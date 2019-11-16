@@ -2,14 +2,15 @@
 
 module Api
   module V1
+    # It returns all artists and their albums.
     class ArtistsController < ApiSitesController
       before_action :assign_resource, only: :albums
-      
+
       def index
         artists_query = Artist.all.order(popularity: :desc)
 
         render json: {
-          data: set_collection(artists_query)
+          data: load_collection(artists_query)
         }, status: :ok
       end
 
@@ -17,7 +18,7 @@ module Api
         albums_query = @artist.albums
 
         render json: {
-          data: set_collection(albums_query)
+          data: load_collection(albums_query)
         }, status: :ok
       end
     end
