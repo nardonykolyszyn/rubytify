@@ -17,6 +17,7 @@ module Api
 
       private
 
+      
       def song
         @song ||= RSpotify::Recommendations.generate(seed_genres: [params[:genre_name]]).tracks.first
       end
