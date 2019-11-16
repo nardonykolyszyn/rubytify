@@ -15,8 +15,12 @@ class RegisterArtist < ApplicationInteractor
   protected
 
   def assign_albums
-    artist_albums = extract_albums
-    artist_albums.each { |album| artist.albums.build(album) }
+    artist_albums = extract_albums(albums)
+    artist_albums.each do |album|
+      artist.albums.build(album.except(:tracks))
+      songs = extract_songs(album[:tracks])
+      songs.each { |song| artist.albums.last.songs.build(song) }
+    end
   end
 
   private
