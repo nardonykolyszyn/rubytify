@@ -15,7 +15,7 @@ class ApplicationInteractor
   end
 
   def not_found
-    context.fail!(error: '404 This artist does not exist')
+    context.fail!(error: 'This artist does not exist')
   end
 
   def persist_record(record: nil, resource_name: '', params: {})
@@ -31,14 +31,5 @@ class ApplicationInteractor
   def retrieve_resource(resource_name, spotify_id)
     resource_name.to_s.capitalize
                  .constantize.find_by(spotify_id: spotify_id)
-  end
-
-
-  # FIXME: Parse strings into symbols.
-  def process_response(response)
-    # NOTE: RSpotify does not provide serialized models for responses.
-    # NOTE: It doesn't return HTTP status codes, so that is why we validate using Array#present.
-    # ANCHOR: This method is provided my ActiveSupport, it parses strings into symbols.
-    response.map(&:deep_symbolize_keys) if response.present?
   end
 end
