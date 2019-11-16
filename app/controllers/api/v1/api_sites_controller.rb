@@ -10,6 +10,10 @@ module Api
         resource = controller_name.classify.constantize.find(params[:id])
         instance_variable_set("@#{resource_name}", resource)
       end
+
+      def set_collection(query)
+        ActiveModelSerializers::SerializableResource.new(query)
+      end
     end
   end
 end
