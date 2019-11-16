@@ -46,8 +46,12 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'parallel_tests'
+  gem 'rails-controller-testing'
   gem 'reek', require: false
+  gem 'rspec-rails'
 end
 
 group :development do
