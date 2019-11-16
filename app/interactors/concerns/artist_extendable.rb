@@ -21,15 +21,9 @@ module ArtistExtendable
     album_parameters = []
 
     albums.each do |album|
-      album_parameters.push(
-        {
-          name: album.name,
-          total_tracks: album.total_tracks,
-          image: album.images[0]['url'],
-          spotify_id: album.id,
-          spotify_url: album.href
-        }
-      )
+      album_parameters.push(name: album.name, total_tracks: album.total_tracks,
+                            image: album.images[0]['url'], spotify_id: album.id,
+                            spotify_url: album.href)
     end
 
     album_parameters
